@@ -1,4 +1,4 @@
-Template.dashboardList.helpers({
+Template.board.helpers({
  // canFollow: function() {
  //  return false;
  // },
@@ -7,7 +7,7 @@ Template.dashboardList.helpers({
  // }
 });
 
-Template.dashboardList.events({
+Template.board.events({
  "submit form": function(e, template) {
   // e.preventDefault();
   // var textarea = template.find("textarea");

@@ -1,11 +1,11 @@
 Router.route("/board/new", function() {
- this.render("dashboardNew", {
+ this.render("board_new", {
   data: function() {
    return {
    }
   }
  });
 }, { 
-  name: "dashboardNew", 
+  name: "board_new", 
   fastRender: true
 });
