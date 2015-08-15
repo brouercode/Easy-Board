@@ -10,3 +10,4 @@ accounts-base
 ian:accounts-ui-bootstrap-3
 accounts-password
 mrt:bootstrap-3
+meteorhacks:fast-render

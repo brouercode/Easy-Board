@@ -1,5 +1,6 @@
 <template name="home">
-    {{#if !currentUser}}
+    {{#if currentUser}}
+    {{else}}
         <div class="hero-unit">
             <h2>The easiest way to develop business models.</h2>
             <p class="lead">

@@ -7,6 +7,7 @@ meteor add iron:router
 meteor add accounts-base
 meteor add ian:accounts-ui-bootstrap-3
 meteor add accounts-password
+meteor add meteorhacks:fast-render
 
 ------init SERVER
 meteor --port $IP:$PORT
