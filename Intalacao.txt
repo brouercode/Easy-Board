@@ -1,0 +1,19 @@
+meteor update
+
+meteor remove insecure
+meteor remove autopublish
+meteor add bootstrap-3
+meteor add iron:router
+meteor add accounts-base
+meteor add accounts-base
+meteor add accounts-ui-bootstrap-3
+meteor add accounts-password
+
+------init SERVER
+meteor --port $IP:$PORT
+
+
+----- LINKS
+http://easycanvas.herokuapp.com/
+https://github.com/caio-ribeiro-pereira/meteor-bird
+https://github.com/bielversallini/easy-canvas
