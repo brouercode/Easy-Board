@@ -1,11 +1,10 @@
-Router.route("/", function() {
- this.render("dashboardList", {
+Router.route("/board", function() {
+ this.render("board", {
   data: function() {
-   return {
-   }
+   return {}
   }
  });
-}, { 
-  name: "dashboardList", 
-  fastRender: true
+}, {
+ name: "board",
+ fastRender: true
 });

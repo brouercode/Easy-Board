@@ -1,4 +1,4 @@
-Router.route("/new", function() {
+Router.route("/board/new", function() {
  this.render("dashboardNew", {
   data: function() {
    return {

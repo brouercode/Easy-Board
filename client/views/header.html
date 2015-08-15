@@ -1,12 +1,16 @@
 <template name="header">
  <header>
   <nav class="navbar navbar-inverse navbar-static-top">
- <div class="navbar-inner">
-  <div class="container">
-    <a href="{{pathFor route='home'}}" class="brand blue">
-      EASY CANVAS
-    </a>
-   </div>
+   <div class="navbar-inner">
+
+    <div class="navbar-header">
+     <a href="{{pathFor route='home'}}" class="navbar-brand">EASY DASHBOARD</a>
+    </div>
+    <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav navbar-right">
+      {{> loginButtons}}
+     </ul>
+    </div>
    </div>
   </nav>
  </header>
