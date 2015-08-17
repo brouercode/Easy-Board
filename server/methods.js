@@ -1,27 +1,16 @@
 Meteor.methods({
- // followUser: function(friendId) {
- //  Friendships.follow(friendId);
- // },
- // unfollowUser: function(friendId) {
- //  Friendships.unfollow(friendId);
- // },
- // profileUpdate: function(name, about) {
- //  Meteor.users.update(
- //   {_id: this.userId},
- //   {$set: {
- //     "profile.name": name,
- //     "profile.about": about
- //   }}
- //  );
- //  Posts.update(
- //    {userId: this.userId},
- //    {$set: {
- //      name: name
- //    }},
- //    {multi: true}
- //  );
- // },
- // publishPost: function(message, name) {
- //  Posts.publish(message, name);
- // }
+ insertBoard: function(nameBoard, typeBoard) {
+  var user = Meteor.user();
+
+  if (!user) // you can also check this.userId here
+   throw new Meteor.Error(401, 'Please login.');
+
+  if (!nameBoard)
+   throw new Meteor.Error(422, 'Please include a name.');
+
+  if (!typeBoard)
+   throw new Meteor.Error(422, 'Please include a type.');
+
+  Board.insertBoard(nameBoard, typeBoard);
+ }
 });

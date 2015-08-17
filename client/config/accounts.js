@@ -1,3 +1,3 @@
 Accounts.onLogin(function() {
-    Router.go('board');
+    Router.go('board_list');
 });
