@@ -3,9 +3,12 @@ Template.board_new.events({
   e.preventDefault();
   var nameBoard = template.find("#nameBoard").value;
   var typeBoard = template.find("#typeBoard").value;
-  Meteor.call("insertBoard", nameBoard, typeBoard, function(err){
-   alert(err);
+  Meteor.call("insertBoard", nameBoard, typeBoard, function(err) {
+   if (err)
+    alert(err);
+   else
+    Router.go("board_list");
   });
-  Router.go("board_list");
+
  }
 });

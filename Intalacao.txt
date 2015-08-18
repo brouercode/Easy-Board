@@ -8,6 +8,7 @@ meteor add accounts-base
 meteor add ian:accounts-ui-bootstrap-3
 meteor add accounts-password
 meteor add meteorhacks:fast-render
+meteor add mrt:jquery-ui-sortable
 
 ------init SERVER
 meteor --port $IP:$PORT

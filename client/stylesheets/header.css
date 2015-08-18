@@ -1,6 +1,12 @@
+header .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 header .navbar-brand {
     color: #000000;
     font-weight: bold;
     padding-right: 32px;
+    padding-left: 0px;
     text-shadow: 0px 1px 0px #FFFFFF;
 }

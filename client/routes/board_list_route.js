@@ -1,7 +1,14 @@
-Router.route("/board_list", function() {
+Router.route("/board/list", function() {
+ this.subscribe("boardListByUser");
  this.render("board_list", {
   data: function() {
-   return {}
+   return {
+    boards: Board.find({}, {
+     sort: {
+      name: 1
+     }
+    })
+   }
   }
  });
 }, {
