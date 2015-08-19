@@ -6,7 +6,7 @@ Router.route("/board/:_id", function() {
  this.render("board", {
   data: function() {
    return {
-    boardSelected: Board.findOne({_id: _id})
+    boardSelected: BoardDB.findOne({_id: _id})
    }
   }
  });

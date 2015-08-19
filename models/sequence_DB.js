@@ -1,6 +1,6 @@
-Sequence = new Mongo.Collection('sequence');
+SequenceDB = new Mongo.Collection('sequence');
 
-Sequence.next = function(name) {
+SequenceDB.next = function(name) {
     var ret = this.findOne({
         query: {
             _id: name
@@ -14,7 +14,7 @@ Sequence.next = function(name) {
             _id: name
         }, {
             $inc: {
-                seq: ret.seq
+                seq: 1
             }
         });
     }
@@ -25,6 +25,5 @@ Sequence.next = function(name) {
         };
         this.insert(ret);
     }
-    console.log(ret);
-    return ret.seq;
+    return "" + ret.seq;
 }

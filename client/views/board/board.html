@@ -5,17 +5,17 @@
             <thead>
                 <tr>
                     <th class="header-story">Story
-                        <a class="btn btn-new-story" data-toggle="modal" data-target=".bs-example-modal-sm">+ Add Story</a>
-                        <div class="modal fade bs-example-modal-sm modal-add-story" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <a class="btn btn-new-story" data-toggle="modal" data-target=".modal-add-story">+ Add Story</a>
+                        <div class="modal fade modal-add-story" tabindex="-1" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Modal title</h4>
+                                        <h4 class="modal-title">Story</h4>
                                     </div>
-                                    <form>
+                                    <form id="form-add-story">
                                         <div class="modal-body">
-                                            <input class="form-control" id="nameStory" placeholder="Name">
+                                            <input class="form-control" id="storyName" placeholder="Name">
                                         </div>
                                         <div class="modal-footer">
                                             <button id="closeModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -25,6 +25,12 @@
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            $('.modal-add-story').on('show.bs.modal', function(event) {
+                                var modal = $(this)
+                                modal.find('#storyName')[0].value = "";
+                            });
+                        </script>
                     </th>
                     <th>To Do</th>
                     <th>In Process</th>
@@ -37,182 +43,91 @@
                 <tr>
                     <td class="board-column">
                         <div class="story-container">
-                            <div class="story-name">{{name}}
-                                <a class="btn btn-new-task">+ Add Task</a>
-                                <a class="btn btn-delete-story" data-story-id="{{_id}}">X</a>
+                            <div class="story-name" data-story-id="{{storyId}}">{{name}}
+                                <a class="btn btn-new-task" data-toggle="modal" data-target=".modal-add-task">+ Add Task</a>
+                                <a class="btn btn-delete-story">X</a>
                             </div>
                         </div>
                     </td>
                     <td class="board-column">
-                        <div class="board-container story1">
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="board-container story{{storyId}}" data-story-id="{{storyId}}" data-state="TODO">
+                            {{#each listTask}} {{#if stateIs "TODO"}} {{> task }} {{/if}} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
-                        <div class="board-container story1">
+                        <div class="board-container story{{storyId}}" data-story-id="{{storyId}}" data-state="PROCESS">
+                            {{#each listTask}} {{#if stateIs "PROCESS"}} {{> task }} {{/if}} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
-                        <div class="board-container story1">
+                        <div class="board-container story{{storyId}}" data-story-id="{{storyId}}" data-state="VERIFY">
+                            {{#each listTask}} {{#if stateIs "VERIFY"}} {{> task }} {{/if}} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
-                        <div class="board-container story1">
+                        <div class="board-container story{{storyId}}" data-story-id="{{storyId}}" data-state="DONE">
+                            {{#each listTask}} {{#if stateIs "DONE"}} {{> task }} {{/if}} {{/each}}
                         </div>
                     </td>
                     <script>
                         $(function() {
-                            $(".story1").sortable({
-                                connectWith: ".story1",
+                            $(".story{{storyId}}").sortable({
+                                connectWith: ".story{{storyId}}",
                                 handle: ".task-move"
                             }).disableSelection();
                         });
                     </script>
                 </tr>
                 {{/each}}
-                <tr>
-                    <td class="board-column">
-                        <div class="story-container">
-                            <div class="story-name">Story 2<a class="btn btn-new-task">+ Add Task</a><a href="/board/list" class="btn btn-delete-story">X</a></div>
-                        </div>
-                    </td>
-                    <td class="board-column">
-                        <div class="board-container story2">
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="task">
-                                <div class="task-move"><a href="/board/list" class="btn btn-delete-task pull-right">X</a></div>
-                                <div class="task-content">
-                                    <div class="task-description">
-                                        <span>Datagrid </span>
-                                    </div>
-                                    <div class="task-footer">
-                                        <div class="task-assignment">
-                                            Leonardo da Costa Cabral
-                                        </div>
-                                        <div class="task-point">
-                                            8
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="board-column">
-                        <div class="board-container story2">
-                        </div>
-                    </td>
-                    <td class="board-column">
-                        <div class="board-container story2">
-                        </div>
-                    </td>
-                    <td class="board-column">
-                        <div class="board-container story2">
-                        </div>
-                    </td>
-                    <script>
-                        $(function() {
-                            $(".story2").sortable({
-                                connectWith: ".story2"
-                            }).disableSelection();
-                        });
-                    </script>
-                </tr>
             </tbody>
         </table>
 
+    </div>
+
+    <div class="modal fade modal-add-task" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Task</h4>
+                </div>
+                <form id="form-add-task">
+                    <div class="modal-body">
+                        <input class="form-control" id="taskName" placeholder="Name">
+                        <input type="hidden" id="storyId">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="closeModal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.modal-add-task').on('show.bs.modal', function(event) {
+            var modal = $(this)
+            modal.find('#taskName')[0].value = "";
+            modal.find('#storyId')[0].value = event.relatedTarget.parentElement.dataset.storyId;
+        });
+    </script>
+</template>
+
+<template name="task">
+    <div class="task">
+        <div class="task-move" data-story-id="{{../storyId}}" data-task-id="{{taskId}}"><a class="btn btn-delete-task pull-right">X</a></div>
+        <div class="task-content">
+            <div class="task-description">
+                <span>{{name}} </span>
+            </div>
+            <div class="task-footer">
+                <div class="task-assignment">
+                    Leonardo da Costa Cabral
+                </div>
+                <div class="task-point">
+                    8
+                </div>
+            </div>
+        </div>
     </div>
 </template>

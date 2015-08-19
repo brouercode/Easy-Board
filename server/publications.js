@@ -1,5 +1,5 @@
 Meteor.publish("boardListByUser", function() {
-  return Board.find({
+  return BoardDB.find({
     userId: this.userId
   }, {
     fields: {
@@ -12,7 +12,7 @@ Meteor.publish("boardListByUser", function() {
 });
 
 Meteor.publish("board", function(id) {
-  return Board.find({
+  return BoardDB.find({
     _id: id
   });
 });

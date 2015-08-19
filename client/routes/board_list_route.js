@@ -3,7 +3,7 @@ Router.route("/board/list", function() {
  this.render("board_list", {
   data: function() {
    return {
-    boards: Board.find({}, {
+    boards: BoardDB.find({}, {
      sort: {
       name: 1
      }

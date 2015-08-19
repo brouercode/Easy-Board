@@ -1,44 +1,39 @@
 Meteor.methods({
- insertBoard: function(nameBoard, typeBoard) {
-  var user = Meteor.user();
-
-  if (!user) // you can also check this.userId here
-   throw new Meteor.Error(401, 'Please login.');
-
-  if (!nameBoard)
+ insertBoard: function(boardName, boardType) {
+  if (!boardName)
    throw new Meteor.Error(422, 'Please include a name.');
 
-  if (!typeBoard)
+  if (!boardType)
    throw new Meteor.Error(422, 'Please include a type.');
 
-  Board.insertBoard(nameBoard, typeBoard);
+  BoardDB.insertBoard(boardName, boardType);
  },
+
  deleteBoard: function(id) {
-  var user = Meteor.user();
-
-  if (!user) // you can also check this.userId here
-   throw new Meteor.Error(401, 'Please login.');
-
   if (!id)
    throw new Meteor.Error(422, 'Please include a name.');
 
-  Board.deleteBoard(id);
+  BoardDB.deleteBoard(id);
  },
- insertStory: function(_id, nameStory) {
-  var user = Meteor.user();
 
-  if (!user) // you can also check this.userId here
-   throw new Meteor.Error(401, 'Please login.');
-
-  Board.insertStory(_id, nameStory);
+ insertStory: function(_id, storyName) {
+  BoardDB.insertStory(_id, storyName);
  },
+
  deleteStory: function(_id, storyId) {
-  var user = Meteor.user();
-
-  if (!user) // you can also check this.userId here
-   throw new Meteor.Error(401, 'Please login.');
-
-  Board.deleteStory(_id, storyId);
+  BoardDB.deleteStory(_id, storyId);
  },
-});
 
+ insertTask: function(_id, storyId, taskName, taskState) {
+  BoardDB.insertTask(_id, storyId, taskName, taskState);
+ },
+
+ deleteTask: function(_id, storyId, taskId) {
+  BoardDB.deleteTask(_id, storyId, taskId);
+ },
+
+ updateTask: function(_id, state, storyId, listTaskId) {
+  BoardDB.updateTask(_id, state, storyId, listTaskId);
+ }
+
+});
