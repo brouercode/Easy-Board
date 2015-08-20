@@ -10,30 +10,37 @@ Meteor.methods({
  },
 
  deleteBoard: function(id) {
-  if (!id)
-   throw new Meteor.Error(422, 'Please include a name.');
-
   BoardDB.deleteBoard(id);
  },
 
- insertStory: function(_id, storyName) {
-  BoardDB.insertStory(_id, storyName);
+ saveStory: function(boardId, storyId, storyName) {
+  if (storyId != undefined && storyId != null && storyId != "") {
+   StoryDB.updateStory(storyId, storyName);
+  }
+  else {
+   StoryDB.insertStory(boardId, storyName);
+  }
  },
 
- deleteStory: function(_id, storyId) {
-  BoardDB.deleteStory(_id, storyId);
+ deleteStory: function(storyId) {
+  StoryDB.deleteStory(storyId);
  },
 
- insertTask: function(_id, storyId, taskName, taskState) {
-  BoardDB.insertTask(_id, storyId, taskName, taskState);
+ saveTask: function(storyId, taskId, taskName, taskAssigned, taskState) {
+  if (taskId != undefined && taskId != null && taskId != "") {
+   StoryDB.updateTask(storyId, taskId, taskName, taskAssigned);
+  }
+  else {
+   StoryDB.insertTask(storyId, taskName, taskAssigned, taskState);
+  }
  },
 
- deleteTask: function(_id, storyId, taskId) {
-  BoardDB.deleteTask(_id, storyId, taskId);
+ deleteTask: function(storyId, taskId) {
+  StoryDB.deleteTask(storyId, taskId);
  },
 
- updateTask: function(_id, state, storyId, listTaskId) {
-  BoardDB.updateTask(_id, state, storyId, listTaskId);
+ updateTaskState: function(state, storyId, listTaskId) {
+  BoardDB.updateTaskState(state, storyId, listTaskId);
  }
 
 });

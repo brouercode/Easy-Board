@@ -42,6 +42,56 @@
     margin-left: 3px;
 }
 
+.board .view-title {
+    margin-bottom: 10px;
+    border-bottom: none;
+}
+
+.board .view-title .navbar {
+    min-height: 1px;
+    margin-bottom: auto;
+}
+
+.board .view-title .navbar .navbar-collapse {
+    padding-right: 5px;
+}
+
+.board .view-title .dropdown-toggle {
+    cursor: pointer;
+}
+
+.board .view-title .dropdown-menu > li > a {
+    padding: 3px 10px;
+    display: initial;
+    cursor: pointer;
+}
+
+.board .view-title .dropdown-menu > li > .icon-share {
+    color: #4C91D2;
+    padding-left: 10px;
+    vertical-align: middle;
+    top: 0px;
+}
+
+.board .view-title .dropdown-menu > li > .icon-delete {
+    color: #D24C4C;
+    padding-left: 10px;
+    vertical-align: middle;
+    top: 0px;
+}
+
+.board .view-title .dropdown-menu > li > .icon-close {
+    color: #4C91D2;
+    padding-left: 10px;
+    font-weight: bold;
+    vertical-align: middle;
+    top: 0px;
+}
+
+.board .view-title .navbar .title-board-name {
+    height: 32px;
+}
+
 .board .header-story {
     position: relative;
 }
@@ -94,9 +144,16 @@
     left: 5px;
 }
 
+.board .board-column .story-container .story-name .btn-edit-story {
+    top: 2px;
+    right: 19px;
+    font-weight: initial;
+}
+
 .board .board-column .story-container .story-name .btn-delete-story {
     top: 2px;
     right: 3px;
+    font-weight: initial;
 }
 
 .board .board-column .board-container {
@@ -123,14 +180,14 @@
     background-color: rgba(158, 158, 158, 0.31);
 }
 
-.board .board-column .board-container .task .task-move .btn-delete-task {
+.board .board-column .board-container .task .task-move .btn-delete-task,
+.board .board-column .board-container .task .task-move .btn-edit-task {
     padding: 0;
     font-size: 10px;
     color: #9E9127;
     border-style: none;
-    margin-top: -2px;
+    margin-top: -1px;
     margin-right: 1px;
-    font-weight: bold;
 }
 
 .board .board-column .board-container .task .task-content {
@@ -151,12 +208,12 @@
     color: rgba(134, 134, 4, 0.88);
 }
 
-.board .board-column .board-container .task .task-content .task-footer .task-assignment {
+.board .board-column .board-container .task .task-content .task-footer .task-assigned {
     float: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100px;
+    width: 110px;
 }
 
 .board .board-column .board-container .task .task-content .task-footer .task-point {

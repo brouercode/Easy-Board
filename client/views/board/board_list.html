@@ -11,15 +11,15 @@
                         <tr>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Designed for</th>
+                            <th>Created By</th>
                         </tr>
                     </thead>
                     <tbody>
                         {{#each boards}}
                         <tr>
                             <td><a href="{{pathFor 'board'}}">{{name}}</a></td>
-                            <td><a href="{{pathFor 'board'}}">{{{typeBoardLabel type}}}</a></td>
-                            <td><a href="{{pathFor 'board'}}">{{userName}}</a></td>
+                            <td>{{{typeBoardLabel type}}}</td>
+                            <td>{{userName}}</td>
                         </tr>
                         {{/each}}
                     </tbody>

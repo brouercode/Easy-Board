@@ -1,6 +1,10 @@
 Meteor.publish("boardListByUser", function() {
   return BoardDB.find({
-    userId: this.userId
+    $or: [{
+      "listShare": this.userId
+    }, {
+      "userId": this.userId
+    }]
   }, {
     fields: {
       '_id': 1,
@@ -11,8 +15,14 @@ Meteor.publish("boardListByUser", function() {
   });
 });
 
-Meteor.publish("board", function(id) {
+Meteor.publish("boardById", function(boardId) {
   return BoardDB.find({
-    _id: id
+    _id: boardId
+  });
+});
+
+Meteor.publish("storyByBoardId", function(boardId) {
+  return StoryDB.find({
+    boardId: boardId
   });
 });
