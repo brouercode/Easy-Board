@@ -44,6 +44,7 @@ Meteor.methods({
  },
 
  shareBoard: function(boardId, userEmail) {
+  
   //BoardDB.updateTaskState(state, storyId, listTaskId);
  }
  
