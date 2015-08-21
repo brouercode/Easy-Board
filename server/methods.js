@@ -40,7 +40,12 @@ Meteor.methods({
  },
 
  updateTaskState: function(state, storyId, listTaskId) {
-  BoardDB.updateTaskState(state, storyId, listTaskId);
+  StoryDB.updateTaskState(state, storyId, listTaskId);
+ },
+
+ shareBoard: function(boardId, userEmail) {
+  //BoardDB.updateTaskState(state, storyId, listTaskId);
  }
+ 
 
 });

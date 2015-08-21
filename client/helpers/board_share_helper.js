@@ -1,4 +1,9 @@
 Template.board.events({
+ "click .btn-share-board": function(e, template) {
+  e.preventDefault();
+
+ },
+
  "click .btn-delete-board": function(e, template) {
   e.preventDefault();
   if (confirm("Are you sure you want to delete the board?")) {

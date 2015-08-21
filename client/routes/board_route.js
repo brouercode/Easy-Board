@@ -6,8 +6,16 @@ Router.route("/board/:_id", function() {
  this.render("board", {
   data: function() {
    return {
-    boardSelected: BoardDB.findOne({_id: boardId}),
-    storiesForBoard: StoryDB.find({boardId: boardId})
+    boardSelected: BoardDB.findOne({
+     _id: boardId
+    }),
+    storiesForBoard: StoryDB.find({
+     boardId: boardId
+    }, {
+     sort: {
+      name: 1
+     }
+    })
    }
   }
  });

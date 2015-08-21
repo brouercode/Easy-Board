@@ -90,6 +90,7 @@
 
 .board .view-title .navbar .title-board-name {
     height: 32px;
+    margin-top: 4px;
 }
 
 .board .header-story {
@@ -218,4 +219,46 @@
 
 .board .board-column .board-container .task .task-content .task-footer .task-point {
     float: right;
+}
+
+.modal-share-board .modal-dialog #form-share-board > table {
+    margin-bottom: 0;
+}
+
+.modal-share-board .modal-dialog #form-share-board > table th {
+    padding: 15px 20px;
+}
+
+.modal-share-board .modal-dialog #form-share-board > table th .form-control {
+    width: 100%;
+}
+
+.modal-share-board .modal-dialog #form-share-board > table .th-bt {
+    width: 20px;
+    padding-left: 0;
+}
+
+.modal-share-board .modal-dialog #form-share-board > table .th-bt .btn{
+    height: 35px;
+}
+
+
+.modal-share-board .modal-dialog #form-share-board .modal-body {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 0px;
+    margin-top: -1px;
+}
+
+.modal-share-board .modal-dialog #form-share-board .modal-body > table {
+    margin-bottom: 0;
+}
+
+.modal-share-board .modal-dialog #form-share-board .modal-body > table .td-bt {
+    width: 20px;
+}
+
+.modal-share-board .modal-dialog #form-share-board .modal-footer {
+    margin-top: 0;
 }

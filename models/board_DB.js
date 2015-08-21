@@ -26,3 +26,20 @@ BoardDB.insertBoard = function(name, type, userName) {
 BoardDB.deleteBoard = function(boardId) {
     this.remove(boardId);
 };
+
+BoardDB.findByUser = function(userId) {
+    this.find({
+        $or: [{
+            "listShare": this.userId
+        }, {
+            "userId": this.userId
+        }]
+    }, {
+        fields: {
+            '_id': 1,
+            'name': 1,
+            'type': 1,
+            'userName': 1
+        }
+    });
+};
