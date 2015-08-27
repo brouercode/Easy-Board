@@ -3,19 +3,19 @@ Meteor.publish("boardListByUser", function() {
 });
 
 Meteor.publish("boardById", function(boardId) {
-  return BoardDB.find({
+  return BoardDB.findFaster({
     _id: boardId
   });
 });
 
 Meteor.publish("storyByBoardId", function(boardId) {
-  return StoryDB.find({
+  return StoryDB.findFaster({
     boardId: boardId
   });
 });
 
 Meteor.publish("taskByBoardId", function(boardId) {
-  return TaskDB.find({
+  return TaskDB.findFaster({
     boardId: boardId
   });
 });

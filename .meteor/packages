@@ -12,3 +12,5 @@ accounts-password
 mrt:bootstrap-3
 meteorhacks:fast-render
 mrt:jquery-ui-sortable
+appcache
+arunoda:find-faster

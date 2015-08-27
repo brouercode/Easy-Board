@@ -7,15 +7,16 @@ Router.route("/board/:_id", function() {
  this.render("board", {
   data: function() {
    return {
-    boardSelected: BoardDB.findOne({
+    boardSelected: BoardDB.findOneFaster({
      _id: boardId
     }),
-    storiesForBoard: StoryDB.find({
+    storiesForBoard: StoryDB.findFaster({
      boardId: boardId
     })
    }
   }
  });
 }, {
- name: "board"
+ name: "board", 
+  fastRender: true
 });

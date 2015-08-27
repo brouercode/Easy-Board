@@ -10,6 +10,9 @@ meteor add accounts-password
 meteor add meteorhacks:fast-render
 meteor add mrt:jquery-ui-sortable
 
+meteor add appcache
+meteor add arunoda:find-faster
+
 ------init SERVER
 meteor --port $IP:$PORT
 

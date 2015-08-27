@@ -1,7 +1,7 @@
 UserDB = Meteor.users;
 
 UserDB.findByEmail = function(userEmail) {
-    return this.findOne({
+    return this.findOneFaster({
         emails: {
             $elemMatch: {
                 address: userEmail

@@ -28,7 +28,7 @@ BoardDB.deleteBoard = function(boardId) {
 };
 
 BoardDB.findByUser = function(userId) {
-    return this.find({
+    return this.findFaster({
         $or: [{
             "listShare._id": userId
         }, {
@@ -69,7 +69,7 @@ BoardDB.unshareBoard = function(boardId, userId) {
 
 
 BoardDB.verifyShare = function(boardId, userId) {
-    var reg = this.findOne({
+    var reg = this.findOneFaster({
         _id: boardId,
         "listShare._id": userId
     });

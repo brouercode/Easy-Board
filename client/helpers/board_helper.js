@@ -56,7 +56,7 @@ Template.board.helpers({
   return userId == Meteor.userId() ? "" : "disabled";
  },
  getListTask: function(storyId, state) {
-  return TaskDB.find({
+  return TaskDB.findFaster({
    storyId: storyId,
    state: state
   }, {
