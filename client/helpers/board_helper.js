@@ -18,7 +18,7 @@ Template.board.events({
  },
 
  "sortreceive .board-container": function(e, template) {
-  e.preventDefault();
+ // e.preventDefault();
   var listaTaskId = [];
   var storyId = e.target.dataset.storyId;
   var state = e.target.dataset.state;
@@ -35,5 +35,8 @@ Template.board.events({
 Template.board.helpers({
  stateIs: function(state) {
   return this.state === state;
+ },
+ isOwner: function(userId) {
+  return userId == Meteor.userId() ? "" : "disabled";
  }
 });

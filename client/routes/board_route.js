@@ -11,10 +11,6 @@ Router.route("/board/:_id", function() {
     }),
     storiesForBoard: StoryDB.find({
      boardId: boardId
-    }, {
-     sort: {
-      name: 1
-     }
     })
    }
   }

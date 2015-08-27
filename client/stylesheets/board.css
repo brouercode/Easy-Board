@@ -66,6 +66,10 @@
     cursor: pointer;
 }
 
+.board .view-title .dropdown-menu > li > .glyphicon.disabled {
+    color: #C1C1C1;
+}
+
 .board .view-title .dropdown-menu > li > .icon-share {
     color: #4C91D2;
     padding-left: 10px;
@@ -238,10 +242,9 @@
     padding-left: 0;
 }
 
-.modal-share-board .modal-dialog #form-share-board > table .th-bt .btn{
+.modal-share-board .modal-dialog #form-share-board > table .th-bt .btn {
     height: 35px;
 }
-
 
 .modal-share-board .modal-dialog #form-share-board .modal-body {
     height: 400px;

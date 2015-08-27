@@ -28,11 +28,11 @@ BoardDB.deleteBoard = function(boardId) {
 };
 
 BoardDB.findByUser = function(userId) {
-    this.find({
+    return this.find({
         $or: [{
-            "listShare": this.userId
+            "listShare._id": userId
         }, {
-            "userId": this.userId
+            "userId": userId
         }]
     }, {
         fields: {
@@ -42,4 +42,37 @@ BoardDB.findByUser = function(userId) {
             'userName': 1
         }
     });
+};
+
+BoardDB.shareBoard = function(boardId, user) {
+
+    this.update({
+        _id: boardId
+    }, {
+        $push: {
+            listShare: user
+        }
+    });
+};
+
+BoardDB.unshareBoard = function(boardId, userId) {
+    this.update({
+        _id: boardId
+    }, {
+        $pull: {
+            listShare: {
+                _id: userId
+            }
+        }
+    });
+};
+
+
+BoardDB.verifyShare = function(boardId, userId) {
+    var reg = this.findOne({
+        _id: boardId,
+        "listShare._id": userId
+    });
+
+    return (reg ? true : false);
 };

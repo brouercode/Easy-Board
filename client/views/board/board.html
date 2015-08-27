@@ -10,12 +10,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <span class="glyphicon glyphicon-share icon-share"></span>
-                                    <a class="btn btn-share-board" data-toggle="modal" data-target=".modal-share-board">Share With...</a>
+                                    <span class="glyphicon glyphicon-share icon-share {{isOwner boardSelected.userId}}"></span>
+                                    <a class="btn btn-share-board {{isOwner boardSelected.userId}}" data-toggle="modal" data-target=".modal-share-board">Share With...</a>
                                 </li>
                                 <li>
-                                    <span class="glyphicon glyphicon-remove-circle icon-delete"></span>
-                                    <a class="btn btn-delete-board">Delete Board</a>
+                                    <span class="glyphicon glyphicon-remove-circle icon-delete {{isOwner boardSelected.userId}}"></span>
+                                    <a class="btn btn-delete-board {{isOwner boardSelected.userId}}">Delete Board</a>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li>
@@ -70,12 +70,12 @@
                         </div>
                     </td>
                     <script>
-                        $(function() {
-                            $(".story{{_id}}").sortable({
-                                connectWith: ".story{{_id}}",
-                                handle: ".task-move"
-                            }).disableSelection();
-                        });
+                        // $(function() {
+                        //     $(".story{{_id}}").sortable({
+                        //         connectWith: ".story{{_id}}",
+                        //         handle: ".task-move"
+                        //     });
+                        // });
                     </script>
                 </tr>
                 {{/each}}
@@ -84,10 +84,6 @@
 
     </div>
 
-   
-  {{> board_story_new}}
-  {{> board_share}}
-  {{> board_task_new}}
+
+    {{> board_story_new}} {{> board_share}} {{> board_task_new}}
 </template>
-
-

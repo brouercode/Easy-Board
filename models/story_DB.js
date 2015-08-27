@@ -109,6 +109,3 @@ StoryDB.updateTaskState = function(state, storyId, listTaskId) {
         }
     });
 };
-
-
-//db.board.update({_id: "gfe8hCshiNPCeGr8u"}, {$push: {listShare : "claytongomes@gmail.com"}});

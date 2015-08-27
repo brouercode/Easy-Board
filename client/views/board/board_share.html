@@ -23,60 +23,14 @@
                     <div class="modal-body" >
                         <table class="table">
                             <tbody>
+                                  {{#each boardSelected.listShare}}
                                 <tr>
-                                    <td><span>leoccabral@gmail.com</span> </td>
+                                    <td><span>{{email}}</span> </td>
                                     <td class="td-bt">
-                                       <button type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
+                                       <button id="btn-unshare" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle" data-user-id="{{_id}}"></button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>leonardo@teste.com.br</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Clayton@gmail.com</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>leoccabral@gmail.com</span> </td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>leoccabral@gmail.com</span> </td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>leoccabral@gmail.com</span> </td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>leoccabral@gmail.com</span> </td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>leonardo@teste.com.br</td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>leonardo@teste.com.br</td>
-                                    <td>
-                                        <button id="closeModal" type="button" class="btn btn-danger glyphicon glyphicon-remove-circle"></button>
-                                    </td>
-                                </tr>
+                                 {{/each}}
                             </tbody>
                         </table>
                     </div>

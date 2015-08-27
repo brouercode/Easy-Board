@@ -14,6 +14,9 @@ Meteor.methods({
  },
 
  saveStory: function(boardId, storyId, storyName) {
+  if (!storyName)
+   throw new Meteor.Error(422, 'Please include a name.');
+
   if (storyId != undefined && storyId != null && storyId != "") {
    StoryDB.updateStory(storyId, storyName);
   }
@@ -27,6 +30,8 @@ Meteor.methods({
  },
 
  saveTask: function(storyId, taskId, taskName, taskAssigned, taskState) {
+  if (!taskName)
+   throw new Meteor.Error(422, 'Please include a name.');
   if (taskId != undefined && taskId != null && taskId != "") {
    StoryDB.updateTask(storyId, taskId, taskName, taskAssigned);
   }
@@ -44,9 +49,36 @@ Meteor.methods({
  },
 
  shareBoard: function(boardId, userEmail) {
+
+  if (!userEmail)
+   throw new Meteor.Error(422, 'Please include a email.');
+
+  var user = UserDB.findByEmail(userEmail);
+
+  if (!user) {
+   throw new Meteor.Error(422, 'Email invalid.');
+  }
+
+  if (this.userId == user._id) {
+   throw new Meteor.Error(422, 'User is the owner.');
+  }
+
+  var userShared = BoardDB.verifyShare(boardId, user._id);
   
-  //BoardDB.updateTaskState(state, storyId, listTaskId);
+  if (userShared) {
+   throw new Meteor.Error(422, 'User already registered.');
+  }
+
+  var u = {
+   _id: user._id,
+   email: userEmail
+  };
+
+  BoardDB.shareBoard(boardId, u);
+ },
+
+ unshareBoard: function(boardId, userId) {
+  BoardDB.unshareBoard(boardId, userId);
  }
- 
 
 });
