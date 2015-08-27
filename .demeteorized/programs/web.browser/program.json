@@ -1,0 +1,92 @@
+{
+  "format": "web-program-pre1",
+  "manifest": [
+    {
+      "path": "99965735dfc4cca66b6e01557082aa04ee6aedea.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/99965735dfc4cca66b6e01557082aa04ee6aedea.js",
+      "size": 619287,
+      "hash": "99965735dfc4cca66b6e01557082aa04ee6aedea"
+    },
+    {
+      "path": "081d4016af78f65d88a0f269c814bab1508e85ec.css",
+      "where": "client",
+      "type": "css",
+      "cacheable": true,
+      "url": "/081d4016af78f65d88a0f269c814bab1508e85ec.css?meteor_css_resource=true",
+      "size": 110543,
+      "hash": "081d4016af78f65d88a0f269c814bab1508e85ec"
+    },
+    {
+      "path": "packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot",
+      "size": 20290,
+      "hash": "23799c0aa7b60fb1a66993d024f98ac105e74e93"
+    },
+    {
+      "path": "packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.ttf",
+      "size": 41236,
+      "hash": "536d2b1b2f3462fb122df1922f2e232546f1b11d"
+    },
+    {
+      "path": "packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.svg",
+      "size": 62850,
+      "hash": "ecee9033d9183117d8f59df0e7238e2b24002b24"
+    },
+    {
+      "path": "packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/mrt_bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.woff",
+      "size": 23292,
+      "hash": "c6ea7b1a5bb16b160cc9b8a02f6f6371b5ef7b73"
+    },
+    {
+      "path": "app/images/bg.jpg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/bg.jpg",
+      "size": 58911,
+      "hash": "d571fbd53358e496c90e25ccdbe7b6e94ebe39c5"
+    },
+    {
+      "path": "app/images/mac.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/mac.png",
+      "size": 539699,
+      "hash": "6f19661cf424774f00aed41f5bd95167fc035136"
+    },
+    {
+      "path": "app/images/mac_bg.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/mac_bg.png",
+      "size": 59347,
+      "hash": "20ae24fed827573a3127123fcb38e9adc6b41ae2"
+    },
+    {
+      "path": "head.html",
+      "where": "internal",
+      "type": "head",
+      "hash": "87d546b3539b00cb5dcd45add8c21eaa877e225d"
+    }
+  ]
+}
