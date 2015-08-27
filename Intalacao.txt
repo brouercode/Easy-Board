@@ -21,3 +21,8 @@ meteor --port $IP:$PORT
 http://easycanvas.herokuapp.com/
 https://github.com/caio-ribeiro-pereira/meteor-bird
 https://github.com/bielversallini/easy-canvas
+
+
+---------------------publicar
+npm install -g demeteorizer
+demeteorizer
