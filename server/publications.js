@@ -13,3 +13,9 @@ Meteor.publish("storyByBoardId", function(boardId) {
     boardId: boardId
   });
 });
+
+Meteor.publish("taskByBoardId", function(boardId) {
+  return TaskDB.find({
+    boardId: boardId
+  });
+});

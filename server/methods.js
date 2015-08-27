@@ -29,23 +29,23 @@ Meteor.methods({
   StoryDB.deleteStory(storyId);
  },
 
- saveTask: function(storyId, taskId, taskName, taskAssigned, taskState) {
+ saveTask: function(boardId, storyId, taskId, taskName, taskAssigned, taskState) {
   if (!taskName)
    throw new Meteor.Error(422, 'Please include a name.');
   if (taskId != undefined && taskId != null && taskId != "") {
-   StoryDB.updateTask(storyId, taskId, taskName, taskAssigned);
+   TaskDB.updateTask(taskId, taskName, taskAssigned);
   }
   else {
-   StoryDB.insertTask(storyId, taskName, taskAssigned, taskState);
+   TaskDB.insertTask(boardId, storyId, taskName, taskAssigned, taskState);
   }
  },
 
- deleteTask: function(storyId, taskId) {
-  StoryDB.deleteTask(storyId, taskId);
+ deleteTask: function(taskId) {
+  TaskDB.deleteTask(taskId);
  },
 
- updateTaskState: function(state, storyId, listTaskId) {
-  StoryDB.updateTaskState(state, storyId, listTaskId);
+ updateTaskState: function(taskId, state, taskRank) {
+  TaskDB.updateTaskState(taskId, state, taskRank);
  },
 
  shareBoard: function(boardId, userEmail) {

@@ -17,15 +17,31 @@ Template.board.events({
   Router.go("board_list");
  },
 
- "sortreceive .board-container": function(e, template) {
- // e.preventDefault();
-  var listaTaskId = [];
-  var storyId = e.target.dataset.storyId;
-  var state = e.target.dataset.state;
-  $(e.target).find(".task-move").each(function() {
-   listaTaskId.push(this.dataset.taskId);
-  });
-  Meteor.call("updateTaskState", state, storyId, listaTaskId, function(err) {
+ "sortstop .board-container": function(e, template) {
+  var taskId = e.toElement.dataset.taskId;
+
+  var elTask = $(e.toElement).parent();
+  var before = elTask.prev().get(0)
+  var after = elTask.next().get(0)
+
+  var newRank = 0;
+  if (!before) {
+   if (!after) {
+    newRank = 1;
+   }else{
+   newRank = Blaze.getData(after).rank/2 
+   }
+  }
+  else if (!after) {
+   newRank = Blaze.getData(before).rank + 1
+  }
+  else
+   newRank = (Blaze.getData(after).rank +
+    Blaze.getData(before).rank) / 2
+
+  var state = elTask.parents(".board-container").get(0).dataset.state;
+
+  Meteor.call("updateTaskState", taskId, state, newRank, function(err) {
    if (err)
     alert(err);
   });
@@ -38,5 +54,15 @@ Template.board.helpers({
  },
  isOwner: function(userId) {
   return userId == Meteor.userId() ? "" : "disabled";
+ },
+ getListTask: function(storyId, state) {
+  return TaskDB.find({
+   storyId: storyId,
+   state: state
+  }, {
+   sort: {
+    rank: 1
+   }
+  });
  }
 });

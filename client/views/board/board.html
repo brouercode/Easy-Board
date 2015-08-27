@@ -51,31 +51,31 @@
                     </td>
                     <td class="board-column">
                         <div class="board-container story{{_id}}" data-story-id="{{_id}}" data-state="TODO">
-                            {{#each listTask}} {{#if stateIs "TODO"}} {{> board_task }} {{/if}} {{/each}}
+                            {{#each getListTask _id "TODO"}} {{> board_task }} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
                         <div class="board-container story{{_id}}" data-story-id="{{_id}}" data-state="PROCESS">
-                            {{#each listTask}} {{#if stateIs "PROCESS"}} {{> board_task }} {{/if}} {{/each}}
+                            {{#each getListTask _id "PROCESS"}} {{> board_task }} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
                         <div class="board-container story{{_id}}" data-story-id="{{_id}}" data-state="VERIFY">
-                            {{#each listTask}} {{#if stateIs "VERIFY"}} {{> board_task }} {{/if}} {{/each}}
+                            {{#each getListTask _id "VERIFY"}} {{> board_task }} {{/each}}
                         </div>
                     </td>
                     <td class="board-column">
                         <div class="board-container story{{_id}}" data-story-id="{{_id}}" data-state="DONE">
-                            {{#each listTask}} {{#if stateIs "DONE"}} {{> board_task }} {{/if}} {{/each}}
+                            {{#each getListTask _id "DONE"}} {{> board_task }} {{/each}}
                         </div>
                     </td>
                     <script>
-                        // $(function() {
-                        //     $(".story{{_id}}").sortable({
-                        //         connectWith: ".story{{_id}}",
-                        //         handle: ".task-move"
-                        //     });
-                        // });
+                        $(function() {
+                            $(".story{{_id}}").sortable({
+                                connectWith: ".story{{_id}}",
+                                handle: ".task-move"
+                            });
+                        });
                     </script>
                 </tr>
                 {{/each}}
@@ -83,7 +83,5 @@
         </table>
 
     </div>
-
-
     {{> board_story_new}} {{> board_share}} {{> board_task_new}}
 </template>
