@@ -1,7 +1,7 @@
 SequenceDB = new Mongo.Collection('sequence');
 
 SequenceDB.next = function(name) {
-    var ret = this.findOneFaster({
+    var ret = this.findOne({
         query: {
             _id: name
         }

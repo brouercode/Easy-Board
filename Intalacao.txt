@@ -26,3 +26,4 @@ https://github.com/bielversallini/easy-canvas
 ---------------------publicar
 npm install -g demeteorizer
 demeteorizer
+nvm install 0.10.36
